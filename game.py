@@ -55,14 +55,14 @@ class Game(object):
             f'{bottom}'
         return printed_board
 
-    def add_piece(self, type, square, colour):
+    def add_piece(self, piece_type, square, colour):
         """Add a piece to the board.
 
-
+        This adds
 
         Parameters
         ----------
-        type : str
+        piece_type : str
             One of K, Q, R, B, N, P
         square : str
             Two-character string specifying the square
@@ -73,20 +73,20 @@ class Game(object):
         -------
 
         """
-        if type == 'K':
+        if piece_type == 'K':
             new_piece = pieces.King(square, colour)
-        elif type == 'Q':
+        elif piece_type == 'Q':
             new_piece = pieces.Queen(square, colour)
-        elif type == 'R':
+        elif piece_type == 'R':
             new_piece = pieces.Rook(square, colour)
-        elif type == 'B':
+        elif piece_type == 'B':
             new_piece = pieces.Bishop(square, colour)
-        elif type == 'N':
+        elif piece_type == 'N':
             new_piece = pieces.Knight(square, colour)
-        elif type == 'P':
+        elif piece_type == 'P':
             new_piece = pieces.Pawn(square, colour)
         else:
-            raise ValueError('Invalid piece type! Should be one of K, Q, R, B, N, P')
+            raise ValueError('Invalid piece_type! Should be one of K, Q, R, B, N, P')
 
         self.piece_list.append(new_piece)
         self.board[new_piece.rank][new_piece.file] = new_piece.icon
