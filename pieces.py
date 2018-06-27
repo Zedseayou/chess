@@ -15,7 +15,7 @@ class Piece(object):
         self.colour = colour
         self.captured = False
 
-    def move_piece(self, move: game.Move):
+    def move_piece(self, move):
         self.file = game.Game.files[move.end_square[0]]
         self.rank = game.Game.ranks[move.end_square[1]]
 

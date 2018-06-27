@@ -39,7 +39,7 @@ class Game(object):
         printed_board = f'{top}\n' + \
             f' {rows[0]} \n' + \
             f'{centre}\n' + \
-            f'{rows[1]} \n' + \
+            f' {rows[1]} \n' + \
             f'{centre}\n' + \
             f' {rows[2]} \n' + \
             f'{centre}\n' + \
@@ -93,11 +93,31 @@ class Game(object):
 
     # def remove_piece(self, square):
 
+    def new_game(self):
+        self.turn = 1
+        self.player = "White"
+        self.piece_list = []
 
-    # def setup(self):
-
-
-
+        for square in ['a2', 'b2', 'c2', 'd2', 'e2', 'f2', 'g2', 'h2']:
+            self.add_piece('P', square, 'W')
+        for square in ['a7', 'b7', 'c7', 'd7', 'e7', 'f7', 'g7', 'h7']:
+            self.add_piece('P', square, 'B')
+        for square in ['a1', 'h1']:
+            self.add_piece('R', square, 'W')
+        for square in ['a8', 'h8']:
+            self.add_piece('R', square, 'B')
+        for square in ['b1', 'g1']:
+            self.add_piece('N', square, 'W')
+        for square in ['b8', 'g8']:
+            self.add_piece('N', square, 'B')
+        for square in ['c1', 'f1']:
+            self.add_piece('B', square, 'W')
+        for square in ['c8', 'f8']:
+            self.add_piece('B', square, 'B')
+        self.add_piece('Q', 'd1', 'W')
+        self.add_piece('Q', 'd8', 'B')
+        self.add_piece('K', 'e1', 'W')
+        self.add_piece('K', 'e8', 'B')
 
     # def make_move(self):
     #     command = input('Enter your move in long algebraic notation:')
@@ -109,7 +129,6 @@ class Game(object):
     #     self.board[self.ranks[move.start_square[0]]][self.files[move.start_square[1]]]
     #
     #     return move.piece
-
 
 class Move(object):
     def __init__(self, lan):
