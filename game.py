@@ -1,5 +1,6 @@
 import pieces
 
+
 class Game(object):
 
     ranks = {
@@ -31,27 +32,28 @@ class Game(object):
         self.piece_list = []
 
     def __repr__(self):
-        top = '┌\u3000┬\u3000┬\u3000┬\u3000┬\u3000┬\u3000┬\u3000┬\u3000┐'
-        centre = '├\u3000┼\u3000┼\u3000┼\u3000┼\u3000┼\u3000┼\u3000┼\u3000┤'
-        bottom = '└\u3000┴\u3000┴\u3000┴\u3000┴\u3000┴\u3000┴\u3000┴\u3000┘'
 
-        rows = [' '.join(row) for row in self.board]
+        top = '┌' + '\u2005\u3000\u2005┬' * 7 + '\u2005\u3000\u2005┐'
+        centre = '├' + '\u2005\u3000\u2005┼' * 7 + '\u2005\u3000\u2005┤'
+        bottom = '└' + '\u2005\u3000\u2005┴' * 7 + '\u2005\u3000\u2005┘'
+
+        rows = ['\u2005 \u2005'.join(row) for row in self.board]
         printed_board = f'{top}\n' + \
-            f' {rows[0]} \n' + \
+            f'\u2005 {rows[0]} \u2005\n' + \
             f'{centre}\n' + \
-            f' {rows[1]} \n' + \
+            f'\u2005 {rows[1]} \u2005\n' + \
             f'{centre}\n' + \
-            f' {rows[2]} \n' + \
+            f'\u2005 {rows[2]} \u2005\n' + \
             f'{centre}\n' + \
-            f' {rows[3]} \n' + \
+            f'\u2005 {rows[3]} \u2005\n' + \
             f'{centre}\n' + \
-            f' {rows[4]} \n' + \
+            f'\u2005 {rows[4]} \u2005\n' + \
             f'{centre}\n' + \
-            f' {rows[5]} \n' + \
+            f'\u2005 {rows[5]} \u2005\n' + \
             f'{centre}\n' + \
-            f' {rows[6]} \n' + \
+            f'\u2005 {rows[6]} \u2005\n' + \
             f'{centre}\n' + \
-            f' {rows[7]} \n' + \
+            f'\u2005 {rows[7]} \u2005\n' + \
             f'{bottom}'
         return printed_board
 
@@ -129,6 +131,7 @@ class Game(object):
     #     self.board[self.ranks[move.start_square[0]]][self.files[move.start_square[1]]]
     #
     #     return move.piece
+
 
 class Move(object):
     def __init__(self, lan):
