@@ -25,9 +25,35 @@ class Game(object):
     }
 
     def __init__(self):
-        self.board = [[''] * 8 for _ in range(8)]
-        self.turn = "White"
+        self.board = [['\u2001'] * 8 for _ in range(8)]
+        self.turn = 1
+        self.player = "White"
         self.piece_list = []
+
+    def __repr__(self):
+        top = '┌\u3000┬\u3000┬\u3000┬\u3000┬\u3000┬\u3000┬\u3000┬\u3000┐'
+        centre = '├\u3000┼\u3000┼\u3000┼\u3000┼\u3000┼\u3000┼\u3000┼\u3000┤'
+        bottom = '└\u3000┴\u3000┴\u3000┴\u3000┴\u3000┴\u3000┴\u3000┴\u3000┘'
+
+        rows = [' '.join(row) for row in self.board]
+        printed_board = f'{top}\n' + \
+            f' {rows[0]} \n' + \
+            f'{centre}\n' + \
+            f'{rows[1]} \n' + \
+            f'{centre}\n' + \
+            f' {rows[2]} \n' + \
+            f'{centre}\n' + \
+            f' {rows[3]} \n' + \
+            f'{centre}\n' + \
+            f' {rows[4]} \n' + \
+            f'{centre}\n' + \
+            f' {rows[5]} \n' + \
+            f'{centre}\n' + \
+            f' {rows[6]} \n' + \
+            f'{centre}\n' + \
+            f' {rows[7]} \n' + \
+            f'{bottom}'
+        return printed_board
 
     def add_piece(self, type, square, colour):
         """Add a piece to the board.
@@ -69,6 +95,7 @@ class Game(object):
 
 
     # def setup(self):
+
 
 
 
