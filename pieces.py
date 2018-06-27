@@ -1,4 +1,6 @@
 import game
+import board
+import itertools
 
 
 class Piece(object):
@@ -8,13 +10,12 @@ class Piece(object):
 
         Parameters
         ----------
-        chessboard
         square
         colour
         """
         self.square = square
-        self.file = game.Game.files[square[0]]
-        self.rank = game.Game.ranks[square[1]]
+        self.file = board.Board.n2i(square)[1]
+        self.rank = board.Board.n2i(square)[0]
         self.colour = colour
         self.captured = False
 
@@ -31,8 +32,6 @@ class Piece(object):
         self.rank = game.Game.ranks[move.end_square[1]]
 
 
-
-
 class King(Piece):
     symbol = 'K'
     name = 'King'
@@ -46,6 +45,14 @@ class King(Piece):
         else:
             raise ValueError("Invalid colour specified! Should be 'W' or 'B'")
 
+    def legal_moves(self):
+        neighbours = set(itertools.product(
+            [self.rank, self.rank - 1, self.rank + 1],
+            [self.file, self.file - 1, self.file + 1]
+        )) - set((self.rank, self.file))
+        squares = [
+            
+        ]
 
 class Queen(Piece):
     symbol = 'Q'
