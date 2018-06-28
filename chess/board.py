@@ -30,29 +30,21 @@ class Board(object):
         self.piece_list = []
 
     def __repr__(self):
-        top = '┌' + '\u2005\u3000\u2005┬' * 7 + '\u2005\u3000\u2005┐'
-        centre = '├' + '\u2005\u3000\u2005┼' * 7 + '\u2005\u3000\u2005┤'
+        top = '┌' + '\u2005\u3000\u2005┬' * 7 + '\u2005\u3000\u2005┐\n'
+        centre = '├' + '\u2005\u3000\u2005┼' * 7 + '\u2005\u3000\u2005┤\n'
         bottom = '└' + '\u2005\u3000\u2005┴' * 7 + '\u2005\u3000\u2005┘'
 
         rows = ['\u2005 \u2005'.join(row) for row in self.layout]
-        representation: str = f'{top}\n' + \
-                              f'\u2005 {rows[0]} \u2005\n' + \
-                              f'{centre}\n' + \
-                              f'\u2005 {rows[1]} \u2005\n' + \
-                              f'{centre}\n' + \
-                              f'\u2005 {rows[2]} \u2005\n' + \
-                              f'{centre}\n' + \
-                              f'\u2005 {rows[3]} \u2005\n' + \
-                              f'{centre}\n' + \
-                              f'\u2005 {rows[4]} \u2005\n' + \
-                              f'{centre}\n' + \
-                              f'\u2005 {rows[5]} \u2005\n' + \
-                              f'{centre}\n' + \
-                              f'\u2005 {rows[6]} \u2005\n' + \
-                              f'{centre}\n' + \
-                              f'\u2005 {rows[7]} \u2005\n' + \
-                              f'{bottom}'
-        return representation
+        display: str = top + \
+            f'\u2005 {rows[0]} \u2005\n' + centre + \
+            f'\u2005 {rows[1]} \u2005\n' + centre + \
+            f'\u2005 {rows[2]} \u2005\n' + centre + \
+            f'\u2005 {rows[3]} \u2005\n' + centre + \
+            f'\u2005 {rows[4]} \u2005\n' + centre + \
+            f'\u2005 {rows[5]} \u2005\n' + centre + \
+            f'\u2005 {rows[6]} \u2005\n' + centre + \
+            f'\u2005 {rows[7]} \u2005\n' + bottom
+        return display
 
     @staticmethod
     def n2i(square):
