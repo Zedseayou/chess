@@ -1,4 +1,4 @@
-import pieces
+import chess
 
 
 class Board(object):

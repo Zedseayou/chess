@@ -1,6 +1,4 @@
-import game
-import board
-import itertools
+import chess
 
 
 class Piece(object):
@@ -51,7 +49,7 @@ class King(Piece):
             [self.file, self.file - 1, self.file + 1]
         )) - set((self.rank, self.file))
         squares = [
-            
+
         ]
 
 class Queen(Piece):

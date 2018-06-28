@@ -1,6 +1,5 @@
 import unittest
-import game
-import pieces
+import chess
 
 
 class TestMove(unittest.TestCase):
