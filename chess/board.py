@@ -78,17 +78,17 @@ class Board(object):
 
         """
         if piece_type == 'K':
-            new_piece = pieces.King(square, colour)
+            new_piece = chess.King(square, colour)
         elif piece_type == 'Q':
-            new_piece = pieces.Queen(square, colour)
+            new_piece = chess.Queen(square, colour)
         elif piece_type == 'R':
-            new_piece = pieces.Rook(square, colour)
+            new_piece = chess.Rook(square, colour)
         elif piece_type == 'B':
-            new_piece = pieces.Bishop(square, colour)
+            new_piece = chess.Bishop(square, colour)
         elif piece_type == 'N':
-            new_piece = pieces.Knight(square, colour)
+            new_piece = chess.Knight(square, colour)
         elif piece_type == 'P':
-            new_piece = pieces.Pawn(square, colour)
+            new_piece = chess.Pawn(square, colour)
         else:
             raise ValueError('Invalid piece_type! Should be one of K, Q, R, B, N, P')
 

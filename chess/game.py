@@ -4,7 +4,7 @@ import chess
 class Game(object):
 
     def __init__(self):
-        self.board = [['\u2001'] * 8 for _ in range(8)]
+        self.board = chess.Board()
         self.turn = 1
         self.player = "White"
         self.piece_list = []
@@ -12,6 +12,8 @@ class Game(object):
     def new_game(self):
         self.turn = 1
         self.player = "White"
+        self.board.start_position()
+
 
     # def make_move(self):
     #     command = input('Enter your move in long algebraic notation:')

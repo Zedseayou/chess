@@ -12,8 +12,8 @@ class Piece(object):
         colour
         """
         self.square = square
-        self.file = board.Board.n2i(square)[1]
-        self.rank = board.Board.n2i(square)[0]
+        self.file = chess.Board.n2i(square)[1]
+        self.rank = chess.Board.n2i(square)[0]
         self.colour = colour
         self.captured = False
 
