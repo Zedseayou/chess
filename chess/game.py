@@ -9,6 +9,10 @@ class Game(object):
         self.player = "White"
         self.piece_list = []
 
+    def __repr__(self):
+        display = f'Turn {self.turn}, {self.player} to play.\n' + repr(self.board)
+        return display
+
     def new_game(self):
         self.turn = 1
         self.player = "White"
