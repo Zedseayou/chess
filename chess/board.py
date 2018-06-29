@@ -26,15 +26,16 @@ class Board(object):
     }
 
     def __init__(self):
-        self.layout = [['\u2001'] * 8 for _ in range(8)]
-        self.piece_list = []
+        # self.layout = [['\u2001'] * 8 for _ in range(8)]
+        self.layout = [[None] * 8 for _ in range(8)]
 
     def __repr__(self):
         top = '┌' + '\u2005\u3000\u2005┬' * 7 + '\u2005\u3000\u2005┐\n'
         centre = '├' + '\u2005\u3000\u2005┼' * 7 + '\u2005\u3000\u2005┤\n'
         bottom = '└' + '\u2005\u3000\u2005┴' * 7 + '\u2005\u3000\u2005┘'
 
-        rows = ['\u2005 \u2005'.join(row) for row in self.layout]
+        icons = [['\u2001' if square is None else square.icon for square in row] for row in self.layout]
+        rows = ['\u2005 \u2005'.join(row) for row in icons]
         display: str = top + \
             f'\u2005 {rows[0]} \u2005\n' + centre + \
             f'\u2005 {rows[1]} \u2005\n' + centre + \
@@ -92,11 +93,9 @@ class Board(object):
         else:
             raise ValueError('Invalid piece_type! Should be one of K, Q, R, B, N, P')
 
-        self.piece_list.append(new_piece)
-        self.layout[new_piece.rank][new_piece.file] = new_piece.icon
+        self.layout[new_piece.rank][new_piece.file] = new_piece
 
     def start_position(self):
-        self.piece_list = []
 
         for square in ['a2', 'b2', 'c2', 'd2', 'e2', 'f2', 'g2', 'h2']:
             self.add_piece('P', square, 'W')
@@ -121,4 +120,4 @@ class Board(object):
 
     def move_piece(self, move):
         self.layout[move.start_indices[0]][move.start_indices[0]] = '\u2001'
-        self.layout[move.end_indices[0]][move.end_indices[0]] = move.piece.
+        self.layout[move.end_indices[0]][move.end_indices[0]] = move.piece
