@@ -118,3 +118,7 @@ class Board(object):
         self.add_piece('Q', 'd8', 'B')
         self.add_piece('K', 'e1', 'W')
         self.add_piece('K', 'e8', 'B')
+
+    def move_piece(self, move):
+        self.layout[move.start_indices[0]][move.start_indices[0]] = '\u2001'
+        self.layout[move.end_indices[0]][move.end_indices[0]] = move.piece.

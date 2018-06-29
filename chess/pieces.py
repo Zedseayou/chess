@@ -3,6 +3,8 @@ import chess
 
 class Piece(object):
 
+    piece_names = {'K': 'King', 'Q': 'Queen', 'R': 'Rook', 'B': 'Bishop', 'N': 'Knight', 'P': 'Pawn'}
+
     def __init__(self, square, colour):
         """
 
@@ -32,7 +34,7 @@ class Piece(object):
 
 class King(Piece):
     symbol = 'K'
-    name = 'King'
+    name = Piece.piece_names[symbol]
 
     def __init__(self, square, colour):
         super().__init__(square, colour)
@@ -52,9 +54,10 @@ class King(Piece):
 
         ]
 
+
 class Queen(Piece):
     symbol = 'Q'
-    name = 'Queen'
+    name = Piece.piece_names[symbol]
 
     def __init__(self, square, colour):
         super().__init__(square, colour)
@@ -68,7 +71,7 @@ class Queen(Piece):
 
 class Rook(Piece):
     symbol = 'R'
-    name = 'Rook'
+    name = Piece.piece_names[symbol]
 
     def __init__(self, square, colour):
         super().__init__(square, colour)
@@ -82,7 +85,7 @@ class Rook(Piece):
 
 class Bishop(Piece):
     symbol = 'B'
-    name = 'Bishop'
+    name = Piece.piece_names[symbol]
 
     def __init__(self, square, colour):
         super().__init__(square, colour)
@@ -96,7 +99,7 @@ class Bishop(Piece):
 
 class Knight(Piece):
     symbol = 'N'
-    name = 'Knight'
+    name = Piece.piece_names[symbol]
 
     def __init__(self, square, colour):
         super().__init__(square, colour)
@@ -110,7 +113,7 @@ class Knight(Piece):
 
 class Pawn(Piece):
     symbol = 'P'
-    name = 'Pawn'
+    name = Piece.piece_names[symbol]
 
     def __init__(self, square, colour):
         super().__init__(square, colour)
