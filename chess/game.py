@@ -24,11 +24,15 @@ class Game(object):
         move = chess.Move(command)
         self.board.move_piece(move)
 
+        if self.player == "White":
+            self.player = "Black"
+        else:
+            self.player = "White"
+            self.turn += 1
 
+        self.move_history.append(move)
+        
 
-
-        self.board[self.ranks[move.start_square[0]]][self.files[move.start_square[1]]]
-
-        return move.piece
+        return self
 
 

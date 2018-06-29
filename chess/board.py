@@ -26,8 +26,8 @@ class Board(object):
     }
 
     def __init__(self):
-        # self.layout = [['\u2001'] * 8 for _ in range(8)]
         self.layout = [[None] * 8 for _ in range(8)]
+        self.captured = []
 
     def __repr__(self):
         top = '┌' + '\u2005\u3000\u2005┬' * 7 + '\u2005\u3000\u2005┐\n'
@@ -61,7 +61,7 @@ class Board(object):
         return square
 
     def add_piece(self, piece_type, square, colour):
-        """Add a piece to the board.
+        """Add a piece_symbol to the board.
 
         This adds
 
@@ -119,5 +119,10 @@ class Board(object):
         self.add_piece('K', 'e8', 'B')
 
     def move_piece(self, move):
-        self.layout[move.start_indices[0]][move.start_indices[0]] = '\u2001'
-        self.layout[move.end_indices[0]][move.end_indices[0]] = move.piece
+        piece_to_move = self.layout[move.start_indices[0]][move.start_indices[1]]
+        piece_to_move.square = move.end_square
+        piece_to_move.rank = move.end_indices[0]
+        piece_to_move.file = move.end_indices[1]
+
+        self.layout[move.start_indices[0]][move.start_indices[1]] = None
+        self.layout[move.end_indices[0]][move.end_indices[1]] = piece_to_move
